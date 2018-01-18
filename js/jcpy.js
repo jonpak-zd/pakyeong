@@ -1,0 +1,12 @@
+$(document).ready(function(){
+    $('.sidebar-btn').click(function(){
+        $('.sidebar').toggleClass('show')
+        $('.sidebar-btn').toggleClass('toggle')
+    });
+})
+$(document).ready(function(){
+    $('#sidebar-btn').click(function(){
+        $('.sidebar').toggleClass('show')
+        $('#sidebar-btn').toggleClass('toggle')
+    });
+})
