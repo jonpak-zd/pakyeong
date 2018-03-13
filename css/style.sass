@@ -1,12 +1,46 @@
+$font: 'Poppins', san-serif
+$black: #3a4049
+$gray: #babbbc
+$bluewhite: #E0EAFC
+$blueblack: #29323c
+
 body
   margin: 0
   padding: 0
+  font-family: $font
+
+#gradient-white
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)
+  color: $blueblack
+
+#gradient
+  background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+  background-blend-mode: multiply
+  color: #E0EAFC;  /* fallback for old browsers */
+a
+  text-decoration: none
+
+::selection
+  background: $blueblack
+  color: $bluewhite
+
 .home-bg
   width: 100%
   height: 100vh
   background-size: cover
-  background-image: url('../images/dj-jcpy.jpg')
+  background-image: url('../images/dj-pakyeong.jpg')
   background-position: center
+  font-family: $font
+  font-size: 25px
+  font-weight: 800i
+  font-style: italic
+  // overflow: hidden
+  h1
+    position: absolute
+    margin-top: 0
+    right: 200px
+    top: 270px
+    padding-left: 20px
 
 .page-number
   position: relative
@@ -15,6 +49,7 @@ body
   position: fixed
   z-index: 100
   transform: rotate(90deg)
+  font-weight: 500
 
 .page
   position: relative
@@ -23,23 +58,36 @@ body
   right: 5%
   z-index: 100
   transform: rotate(270deg)
+  font-weight: 500
 
 .sidebar
     position: fixed
     height: 100%
-    width: 200px
+    width: 280px
     top: 0
     background-size: cover
-    background-color: grey
-    transition: .3s
-    left: -200px
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);    transition: .3s
+    left: -280px
+    z-index: 400
+    li
+      list-style: none
+      line-height: 5
+      a
+        color: $bluewhite
+      .activepage
+        color: $blueblack
+        background: $bluewhite
+        padding: 5px 15px
+      a:hover
+        border: 2px solid $bluewhite
+        padding: 4px 16px
 .show
     left: 0px
 
 .sidebar-btn
   position: absolute
   top: 20px
-  left: 300px
+  left: 350px
   // width: 140px
   // height: 50px
   box-sizing: border-box
@@ -47,34 +95,37 @@ body
   border: none
   background: transparent
   outline: none
-  z-index: 100
+  z-index: 500
 
 .sidebar-btn span
   display: block
   width: 30px
   height: 3px
   top: 24px
-  background: #262626
+  // background: #262626
+  background: #E0EAFC
   position: absolute
   transition: 0.3s
   left: 0px
 .sidebar-btn span::before
   content: ''
   position: absolute
-  top: 10px
+  top: 6px
   left: 0px
   width: 80%
   height: 3px
-  background: #262626
+  // background: #262626
+  background: #E0EAFC
   transition: .3s
 .sidebar-btn span::after
   content: ''
   position: absolute
-  top: -10px
+  top: -6px
   left: 0px
   width: 60%
   height: 3px
-  background: #262626
+  // background: #262626
+  background: #E0EAFC
   transition: .3s
 .toggle span
   background: transparent
@@ -82,15 +133,19 @@ body
   top: 0
   transform: rotate(-45deg)
   width: 100%
+  left: -150px
+  background: $blueblack
 .toggle span::after
   top: 0
   transform: rotate(45deg)
   width: 100%
+  left: -150px
+  background: $blueblack
 
 #sidebar-btn
   position: absolute
   top: 20px
-  left: 300px
+  left: 350px
   // width: 140px
   // height: 50px
   box-sizing: border-box
@@ -98,34 +153,34 @@ body
   border: none
   background: transparent
   outline: none
-  z-index: 100
+  z-index: 500
 
 #sidebar-btn span
   display: block
   width: 30px
   height: 3px
   top: 24px
-  background: white
+  background: $blueblack
   position: absolute
   transition: 0.3s
   left: 0px
 #sidebar-btn span::before
   content: ''
   position: absolute
-  top: 10px
+  top: 6px
   left: 0px
   width: 80%
   height: 3px
-  background: white
+  background: $blueblack
   transition: .3s
 #sidebar-btn span::after
   content: ''
   position: absolute
-  top: -10px
+  top: -6px
   left: 0px
   width: 60%
   height: 3px
-  background: white
+  background: $blueblack
   transition: .3s
 #sidebar-btn.toggle span
   background: transparent
@@ -133,28 +188,29 @@ body
   top: 0
   transform: rotate(-45deg)
   width: 100%
+  left: -150px
 #sidebar-btn.toggle span::after
   top: 0
   transform: rotate(45deg)
   width: 100%
+  left: -150px
 
 
-#black
-  background-color: #222323
-#white
-  color: white
+#bluewhite
+  color: $bluewhite
 .about
   display: flex
   flex-direction: row-reverse
   flex-wrap: wrap
   justify-content: center
   margin-top: 80px
+  margin-bottom: 90px
   img
     float: right
   p
     max-width: 700px
     height: 100%
-    font-size: 27px
+    font-size: 25px
     // color: white
     padding-right: 40px
     float: left
@@ -162,21 +218,196 @@ body
     color: white
     margin-top: 80px
 
-.gig-list
+h1
+  text-align: center
+
+.gigs
   display: flex
-  flex-direction: column
+  flex-direction: row
+  flex-wrap: wrap
+  min-height: 500px
+  margin-bottom: 80px
+  align-items: baseline
+  justify-content: center
+  padding: 5px
+  color: #232526
+
+
+
+/* Style the tab */
+.gigs-tab
+    float: left
+
+
+    // background: #E0EAFC;  /* fallback for old browsers */
+    // background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    // border: 1px solid #ccc
+    // background-color: #f1f1f1
+    min-width: 400px
+    border-style: solid
+    border-width: 1px
+    border-color: #E0EAFC;  /* fallback for old browsers */
+    border-color: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    border-color: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    // height: 300px
+
+
+/* Style the buttons inside the tab */
+.gigs-tab button
+    display: block
+    background-color: inherit
+    color: #E0EAFC !important
+    padding: 22px 16px
+    width: 100%
+    border: none
+    outline: none
+    text-align: left
+    cursor: pointer
+    transition: 0.3s
+    font-size: 17px
+
+
+/* Change background color of buttons on hover */
+.gigs-tab button:hover
+    background: #E0EAFC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #485563 !important
+
+
+/* Create an active/current "tab button" class */
+.gigs-tab button.active
+    background: #E0EAFC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #485563 !important
+
+hidden
+  display: none
+/* Style the tab content */
+.tabcontent
+  padding: 0px 12px
+  max-width: 700px
+  border-left: none
+  max-height: 300px
+  margin: 30px
+  color: #E0EAFC !important
+  margin-bottom: 70px
+  img
+    height: 100%
+
+
+  #gig-image
+    opacity: 0.6
+  #gig-image:hover
+    opacity: 1
+
+.mySlides
+  img
+    display: none
+    vertical-align: middle
+    height: 100%
+    max-width: 600px
+    margin: auto
+    // overflow-y: hidden
+.mySlides img.active
+  display: block
+/* Slideshow container */
+.slideshow-container
+  max-width: 800px
+  max-height: 130vh
+  overflow-y: hidden
+  position: relative
+  margin: auto
+  margin-bottom: 80px
+
+
+/* Next & previous buttons */
+.prev, .next
+  cursor: pointer
+  position: absolute
+  top: 50%
+  width: auto
+  padding: 16px
+  margin-top: -22px
+  color: white
+  font-weight: bold
+  font-size: 18px
+  transition: 0.6s ease
+  border-radius: 0 3px 3px 0
+
+
+/* Position the "next button" to the right */
+.next
+  right: 0
+  border-radius: 3px 0 0 3px
+
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover
+  background-color: rgba(0,0,0,0.8)
+
+
+/* Fading animation */
+.fade
+  -webkit-animation-name: fade
+  -webkit-animation-duration: 1.5s
+  animation-name: fade
+  animation-duration: 1.5s
+
+
+@-webkit-keyframes fade
+  from
+    opacity: .4
+  to
+    opacity: 1
+
+
+@keyframes fade
+  from
+    opacity: .4
+  to
+    opacity: 1
+
+
+.contact-page
+  display: flex
+  justify-content: center
   align-items: center
-  margin-top: 80px
+  height: 100vh
+  flex-direction: column
 
-
+  .button
+    background: none
+    border: none
+    height: 60px
+    width: 260px
+    font-size: 20px
+  .button a
+    background: linear-gradient(60deg, #29323c 0%, #485563 100%)
+    border-radius: 20px
+    padding: 7px 20px
+    color: $bluewhite
+    text-align: center
+    overflow: hidden
+  .button a:hover
+    border: 2px solid #29323c
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)
+    color: $blueblack
+    border-radius: 20px
 footer
   position: relative
-  bottom: 10px
+  bottom: 5px
   position: fixed
   width: 100%
+  font-weight: 300
   .social-media-links
     text-align: center
-    padding-bottom: 30px
+    // padding-bottom: 10px
   p
     padding-left: 20px
     font-size: 13px
+    a
+      color: $gray
